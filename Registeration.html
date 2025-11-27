@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Animo - Register</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- FONT AWESOME -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    :root{
+      --animo-green: #9bf44b;
+      --input-bg: rgba(6,18,70,0.95);
+      --glass: rgba(255,255,255,0.06);
+      --bg-accent:#9be04a;
+      --placeholder: rgba(255,255,255,0.6);
+    }
+
+    *{box-sizing:border-box}
+
+    body{
+      margin:0;
+      background:url('bg.jpg') center/cover no-repeat;
+      font-family:"Poppins", sans-serif;
+      display:flex;
+      justify-content:center;
+      padding:25px 15px;
+      color:white;
+    }
+
+    .wrap{
+      width:100%;
+      max-width:430px;
+      background:rgba(0,0,0,0.35);
+      backdrop-filter:blur(8px);
+      border-radius:18px;
+      padding:25px;
+      box-shadow:0 5px 25px rgba(0,0,0,0.4);
+      position:relative;
+    }
+
+    .logo{
+      display:block;
+      margin:auto;
+      height:60px;
+      margin-bottom:10px;
+    }
+
+    h2{
+      text-align:center;
+      font-size:26px;
+      font-weight:700;
+      margin-top:0;
+    }
+
+    .help-row{
+      display:flex;
+      align-items:center;
+      margin:10px 0 18px;
+    }
+    .help-icons{
+      display:flex;
+      gap:12px;
+    }
+    .help-icons a{
+      width:34px;height:34px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:var(--glass);
+      border-radius:50%;
+      color:var(--bg-accent);
+      font-size:17px;
+      text-decoration:none;
+    }
+
+    .divider{
+      height:3px;
+      background:var(--animo-green);
+      border-radius:3px;
+      margin-bottom:20px;
+    }
+
+    form{display:flex;flex-direction:column;gap:14px}
+
+    input, select{
+      width:100%;
+      padding:14px 16px;
+      border-radius:12px;
+      border:0;
+      background:var(--input-bg);
+      color:white;
+      font-size:15px;
+      outline:none;
+    }
+    input::placeholder{color:var(--placeholder)}
+
+    .field{position:relative;}
+
+    .eye{
+      position:absolute;
+      right:14px;
+      top:50%;
+      transform:translateY(-50%);
+      font-size:18px;
+      cursor:pointer;
+      color:white;
+    }
+
+    .error{
+      margin-top:-8px;
+      font-size:13px;
+      color:#ff6b6b;
+      display:none;
+    }
+
+    .btn{
+      padding:14px 18px;
+      background:linear-gradient(90deg, var(--animo-green), #6ed63e);
+      border:0;
+      font-size:16px;
+      font-weight:700;
+      border-radius:12px;
+      cursor:pointer;
+      color:#002a3d;
+    }
+
+    .login-row{
+      text-align:center;
+      margin-top:14px;
+    }
+    .login-row a{color:var(--animo-green);font-weight:600}
+
+ 
+  </style>
+</head>
+<body>
+
+  <div class="wrap">
+
+    <img src="animologo.png" class="logo" alt="Animo Logo">
+    <h2>Welcome Back</h2>
+
+    <div class="help-row">
+      <div style="flex:1">Need help?</div>
+      <div class="help-icons">
+        <a href="https://wa.me/2349164720787?text=Hello%20can%20I%20get%20more%20info%20on%20how%20animo%20works%20%3F%3F"><i class="fa-brands fa-whatsapp"></i></a>
+        <a href="https://wa.me/2349164720787?text=Hello%20can%20I%20get%20more%20info%20on%20how%20animo%20works%20%3F%3F"><i class="fa-solid fa-envelope"></i></a>
+        <a href="https://wa.me/2349164720787?text=Hello%20can%20I%20get%20more%20info%20on%20how%20animo%20works%20%3F%3F"><i class="fa-brands fa-facebook"></i></a>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- FORM -->
+    <form id="regForm">
+
+      <div class="field">
+        <input type="text" placeholder="Full Name" required>
+      </div>
+
+      <div class="field">
+        <input type="text" placeholder="Username" required>
+      </div>
+
+      <div class="field">
+        <input type="email" placeholder="Email" required>
+      </div>
+
+      <div class="field">
+        <input type="tel" placeholder="Phone Number" required>
+      </div>
+
+      <div class="field">
+        <select required>
+          <option value="">Select Country</option>
+          <option>Nigeria</option>
+          <option>Ghana</option>
+          <option>Cameroon</option>
+          <option>Other countries</option>
+        
+        </select>
+      </div>
+
+      <div class="field">
+        <input type="text" placeholder="Enter Animo Code">
+      </div>
+
+      <div class="field">
+        <select required>
+          <option value="">Select Package</option>
+          <option>Silver - ₦10,000 </option>
+          <option>Gold - ₦15,000</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <input id="pwd" type="password" placeholder="Password" required>
+        <i class="fa fa-eye eye" onclick="togglePwd('pwd', this)"></i>
+      </div>
+
+      <div class="field">
+        <input id="pwd2" type="password" placeholder="Confirm Password" required>
+        <i class="fa fa-eye eye" onclick="togglePwd('pwd2', this)"></i>
+      </div>
+
+      <div id="errorMsg" class="error">Password doesn't match</div>
+
+      <button class="btn" type="submit">Register</button>
+    </form>
+<div class="extra-links">
+  <p>
+    Already have an account?
+    <a href="#">Login</a>
+  </p>
+
+  <p>
+    Don’t have Amino code?
+    <a href="getcode.html">Get code</a>
+  </p>
+</div>
+<style>
+  .extra-links {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 14px;
+  color: #fff;
+}
+
+.extra-links a {
+  color: #9bf44b;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.extra-links a:hover {
+  text-decoration: underline;
+}
+</style>
+
+   
+
+  </div>
+
+<script>
+function togglePwd(id, icon){
+  const input = document.getElementById(id);
+
+  if(input.type === "password"){
+    input.type = "text";
+    icon.classList.remove("fa-eye");
+    icon.classList.add("fa-eye-slash");
+  } else {
+    input.type = "password";
+    icon.classList.remove("fa-eye-slash");
+    icon.classList.add("fa-eye");
+  }
+}
+
+document.getElementById("regForm").addEventListener("submit", function(e){
+  e.preventDefault();
+
+  const p1 = document.getElementById("pwd").value;
+  const p2 = document.getElementById("pwd2").value;
+  const errorMsg = document.getElementById("errorMsg");
+
+  if(p1 !== p2){
+    errorMsg.style.display = "block";
+    return;
+  }
+
+  errorMsg.style.display = "none";
+
+
+  window.location.href = "getcode.html";  
+});
+</script>
+
+</body>
+  <!-- WhatsApp Chat Icon -->
+  <a href="https://wa.me/2349164720787?text=Hello%20can%20I%20get%20more%20info%20on%20how%20animo%20works%20%3F%3F" target="_blank" class="chat-icon">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+  <style>
+       .chat-icon {
+      position: fixed;
+      bottom: 30px;
+      left: 30px;
+      background: #25D366;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 28px;
+      box-shadow: 0 0 15px rgba(37, 211, 102, 0.6);
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .chat-icon:hover {
+      transform: scale(1.08);
+      box-shadow: 0 0 25px rgba(37, 211, 102, 0.8);
+    }
+  </style>
+</html>
