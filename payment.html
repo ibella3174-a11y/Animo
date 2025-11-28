@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animo - Payment</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    * { box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+    body { background: #f7f7f7; margin: 0; padding: 20px; color: #333; }
+
+    .lock { text-align: center; font-size: 30px; color: #3090c7; margin: 10px 0; }
+
+    .notice {
+      background: #3090c7;
+      padding: 15px;
+      border-radius: 12px;
+      color: #fff;
+      font-weight: 800;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    /* Countdown Box */
+    .timer-box {
+      background: #1a0000;
+      border-radius: 12px;
+      padding: 18px;
+      margin-bottom: 20px;
+      text-align: center;
+      color: white;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    .timer-title { font-size: 18px; font-weight: 700; color: #ffeb3b; }
+    .countdown { font-size: 40px; font-weight: 700; color: red; margin-top: 5px; }
+    .timer-note { font-size: 13px; margin-top: 5px; color: #e6e6e6; }
+
+    .account-box {
+      background: #fff6f6;
+      border-radius: 12px;
+      padding: 15px;
+      margin-bottom: 15px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+
+    .account-title { font-weight: 700; text-align: center; color: #2b2b2b; }
+    .bank { text-align: center; color: red; font-weight: 600; }
+
+    .acc-number {
+      text-align: center;
+      font-size: 22px;
+      color: #ff9800;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin: 5px 0;
+      position: relative;
+      display: inline-block;
+    }
+
+    .copy-btn { cursor: pointer; font-size: 18px; color: #444; margin-left: 8px; transition: 0.2s; }
+    .copy-btn:hover { color: #ff3c00; }
+
+    .copied-msg { display: none; font-size: 13px; color: green; margin-left: 5px; }
+
+    .acc-name { text-align: center; font-size: 13px; color: #333; margin-top: 3px; }
+
+    .payment-btn {
+      display: block;
+      width: 100%;
+      background: linear-gradient(90deg, #3090c7, #3090c7);
+      color: white;
+      border: none;
+      padding: 15px;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: 600;
+      margin-top: 25px;
+      text-align: center;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .payment-btn:hover { transform: scale(1.03); }
+  </style>
+</head>
+<body>
+
+  <div class="lock"><i class="fa-solid fa-lock"></i></div>
+
+  <div class="notice">
+    To get your ANIMO CODE and activate your account, kindly make a transfer of exactly ₦10,050 or ₦15,050 to the account below.
+  </div>
+
+  <div class="timer-box">
+    <div class="timer-title">Secure Payment Portal<br>Complete payment within:</div>
+    <div id="countdown" class="countdown">10:00</div>
+    <div class="timer-note">Complete your transaction safely. Your account will be activated instantly after confirmation.</div>
+  </div>
+
+
+  <div class="account-box">
+    <div class="account-title">ANIMO ACCOUNT </div>
+    <div class="bank">OPAY(PAYCOM)
+</div>
+
+    <div class="acc-number">
+      <span id="acc1">9029690034</span>
+      <i class="fa-solid fa-copy copy-btn" onclick="copyAcc('acc1', this)"></i>
+      <span class="copied-msg">Copied!</span>
+    </div>
+
+    <div class="acc-name">YIDIAT LATEEF </div>
+  </div>
+  
+  <!-- CAMEROON PAYMENT -->
+<div class="account-box">
+  <div class="account-title"> Animo Cameroon Registration 🇨🇲</div>
+  <div class="bank">MTN Mobile Money</div>
+
+  <div class="acc-number">
+    <span id="cameroonAcc">672414506</span>
+    <i class="fa-solid fa-copy copy-btn" onclick="copyAcc('cameroonAcc', this)"></i>
+    <span class="copied-msg">Copied!</span>
+  </div>
+
+  <div class="acc-name">Armandine Magouetse</div>
+  <div class="note">Amount: Silver: <span class="amount">8,500 XAF</span></div>
+</div>
+
+<!-- GHANA PAYMENT -->
+<div class="account-box">
+  <div class="account-title">Animo Ghana Registration 🇬🇭</div>
+  <div class="bank">MTN Mobile Money</div>
+
+  <div class="acc-number">
+    <span id="ghanaAcc">0541850293</span>
+    <i class="fa-solid fa-copy copy-btn" onclick="copyAcc('ghanaAcc', this)"></i>
+    <span class="copied-msg">Copied!</span>
+  </div>
+
+  <div class="acc-name">Rosemary Dede Narh</div>
+  <div class="note">Amount: Silver: <spam class="amount">170 GHS</span> </div>
+</div>
+
+<style>
+  .amount {
+  font-size: 15px;       
+  color: #000000;        
+  font-weight: 700;
+}
+ .note{
+   font-size: 10px;
+   color: black;
+ }
+</style>
+<a href="https://t.me/coachella08?text=Hello%20admin%2C%20I%20have%20made%20my%20payment%20for%20registration" class="payment-btn">I Have Made My Payment</a>
+
+
+<script>
+  window.addEventListener('load', function() {
+    const modal = document.getElementById('paymentModal');
+    modal.classList.add('active');
+    modal.setAttribute('aria-hidden', 'false');
+  });
+
+  document.getElementById('closeModal').addEventListener('click', function() {
+    const modal = document.getElementById('paymentModal');
+    modal.classList.remove('active');
+    modal.setAttribute('aria-hidden', 'true');
+  });
+
+  document.getElementById('acknowledgeBtn').addEventListener('click', function() {
+    const modal = document.getElementById('paymentModal');
+    modal.classList.remove('active');
+    modal.setAttribute('aria-hidden', 'true');
+  });
+
+  // Countdown Timer (10 minutes)
+  let timeLeft = 10 * 60; // seconds
+
+  function formatTime(sec) {
+    let m = Math.floor(sec / 60);
+    let s = sec % 60;
+    return `${m < 10 ? '0'+m : m}:${s < 10 ? '0'+s : s}`;
+  }
+
+  const countdownEl = document.getElementById("countdown");
+  countdownEl.textContent = formatTime(timeLeft);
+
+  const timer = setInterval(() => {
+    timeLeft--;
+    countdownEl.textContent = formatTime(timeLeft);
+    if (timeLeft <= 0) {
+      clearInterval(timer);
+      countdownEl.textContent = "00:00";
+    }
+  }, 1000);
+
+  // Copy to clipboard function
+  function copyAcc(id, element) {
+    const text = document.getElementById(id).innerText.trim();
+    if (!navigator.clipboard) {
+      // fallback
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand('copy'); } catch(e) {}
+      document.body.removeChild(ta);
+    } else {
+      navigator.clipboard.writeText(text).catch(()=>{});
+    }
+
+    const msg = element.nextElementSibling;
+    msg.style.display = "inline";
+    element.style.color = "green";
+
+    setTimeout(() => {
+      msg.style.display = "none";
+      element.style.color = "#444";
+    }, 1400);
+  }
+</script>
+
+</body>
+        </html>
